@@ -1282,7 +1282,7 @@ The `build_graph` is part of the `fccanalyses run`:
 ```bash
 fccanalysis run histmaker_ttmm.py
 ```
-This should produce `ROTO` files with the histograms in `./outputs`:
+This should produce `ROOT` files with the histograms in `./outputs`:
 ```bash
 ls -lt outputs/
 ```
