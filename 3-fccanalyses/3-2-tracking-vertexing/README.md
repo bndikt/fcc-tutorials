@@ -1,4 +1,4 @@
-# Tracking and vertexing example using specific flavour decays
+# Beyond the Basics: Tracking and Vertexing
 
 <!-- contributors:start -->
 :::{admonition} Page contributors

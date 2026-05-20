@@ -1,4 +1,4 @@
-# FCC: Getting started with simulating events in Delphes
+# Getting Started with Fast Simulation in Delphes
 
 <!-- contributors:start -->
 :::{admonition} Page contributors

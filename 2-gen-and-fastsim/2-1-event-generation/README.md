@@ -1,4 +1,4 @@
-# FCC: Getting started with event generation
+# Getting Started with Event Generation
 
 <!-- contributors:start -->
 :::{admonition} Page contributors

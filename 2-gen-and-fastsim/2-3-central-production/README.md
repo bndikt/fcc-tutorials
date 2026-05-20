@@ -1,4 +1,4 @@
-# Central production of events
+# Central Production
 
 <!-- contributors:start -->
 :::{admonition} Page contributors

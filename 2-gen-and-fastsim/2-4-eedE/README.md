@@ -1,4 +1,4 @@
-Understanding generated process: eedE
+EDM4hep Event Data Explorer: eedE
 ===========================================
 
 <!-- contributors:start -->
