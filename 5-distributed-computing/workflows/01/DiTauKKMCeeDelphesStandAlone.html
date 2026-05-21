@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.2.2. Workflow 1 &mdash; FCC Tutorials  documentation</title>
+  <title>5.3.2. Workflow 1 &mdash; FCC Tutorials  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
@@ -31,8 +31,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="5.3. Structure for /eos/experiment/fcc/prod" href="../../OutputStructure.html" />
-    <link rel="prev" title="5.2.1. Overview of the submission scripts" href="../Overview.html" /> 
+    <link rel="next" title="5.4. Structure for /eos/experiment/fcc/prod" href="../../OutputStructure.html" />
+    <link rel="prev" title="5.3.1. Overview of the Submission Scripts" href="../Overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,24 +58,25 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../1-first-steps/README.html">1. First Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../2-gen-and-fastsim/README.html">2. Generation and Fast Simulation with Delphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../3-fccanalyses/README.html">3. FCCAnalyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../2-gen-and-fastsim/README.html">2. Generation and Fast Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../3-analysis/README.html">3. Analysis at FCC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../4-full-detector-sim/README.html">4. Full Simulation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../README.html">5. Distributed computing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../RegisteringToFccVO.html">5.1. Getting started with FCC distributed computing</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../Workflows.html">5.2. FCC DIRAC example workflows</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../Overview.html">5.2.1. Overview of the submission scripts</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">5.2.2. Workflow 1</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#purpose">5.2.2.1. Purpose</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#output-files">5.2.2.2. Output files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dirac-components-involved">5.2.2.3. DIRAC components involved</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#the-script-dissected">5.2.2.4. The script, dissected</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-script-on-lxplus">5.2.2.5. Running the script on lxplus</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../README.html">5. Distributed Computing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../EventProducer.html">5.1. EventProducer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../RegisteringToFccVO.html">5.2. Getting Started with DIRAC</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../Workflows.html">5.3. FCC DIRAC Example Workflows</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Overview.html">5.3.1. Overview of the Submission Scripts</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.3.2. Workflow 1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#purpose">5.3.2.1. Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-files">5.3.2.2. Output files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dirac-components-involved">5.3.2.3. DIRAC components involved</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-script-dissected">5.3.2.4. The script, dissected</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-script-on-lxplus">5.3.2.5. Running the script on lxplus</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../OutputStructure.html">5.3. Structure for /eos/experiment/fcc/prod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../OutputStructure.html">5.4. Structure for /eos/experiment/fcc/prod</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../6-developing-fccsw/README.html">6. Developing FCCSW</a></li>
@@ -104,9 +105,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../README.html"><span class="section-number">5. </span>Distributed computing</a></li>
-          <li class="breadcrumb-item"><a href="../../Workflows.html"><span class="section-number">5.2. </span>FCC DIRAC example workflows</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">5.2.2. </span>Workflow 1</li>
+          <li class="breadcrumb-item"><a href="../../README.html"><span class="section-number">5. </span>Distributed Computing</a></li>
+          <li class="breadcrumb-item"><a href="../../Workflows.html"><span class="section-number">5.3. </span>FCC DIRAC Example Workflows</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.3.2. </span>Workflow 1</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/HEP-FCC/fcc-tutorials/blob/main/5-distributed-computing/workflows/01/DiTauKKMCeeDelphesStandAlone.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -117,13 +118,13 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="workflow-1">
-<h1><span class="section-number">5.2.2. </span>Workflow 1<a class="headerlink" href="#workflow-1" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5.3.2. </span>Workflow 1<a class="headerlink" href="#workflow-1" title="Link to this heading"></a></h1>
 <section id="purpose">
-<h2><span class="section-number">5.2.2.1. </span>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3.2.1. </span>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
 <p>Demonstrate the use of DIRAC generate 10000 tau+tau- events &#64;91.2 GeV with KKMC and process through Delphes/IDEA.</p>
 </section>
 <section id="output-files">
-<h2><span class="section-number">5.2.2.2. </span>Output files<a class="headerlink" href="#output-files" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3.2.2. </span>Output files<a class="headerlink" href="#output-files" title="Link to this heading"></a></h2>
 <p><strong>Local mode</strong><br>
 The output file is located under a sub-directory name <code class="docutils literal notranslate"><span class="pre">Local_&lt;hash&gt;_JobDir</span></code> created under the current directory.</p>
 <p><strong>WMS mode</strong><br>
@@ -137,7 +138,7 @@ In WMS mode the file will be located under</p>
 </div>
 </section>
 <section id="dirac-components-involved">
-<h2><span class="section-number">5.2.2.3. </span>DIRAC components involved<a class="headerlink" href="#dirac-components-involved" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3.2.3. </span>DIRAC components involved<a class="headerlink" href="#dirac-components-involved" title="Link to this heading"></a></h2>
 <p>This exercise constist of two steps, the event generation with <code class="docutils literal notranslate"><span class="pre">KKMCee</span></code> and the <code class="docutils literal notranslate"><span class="pre">Delphes</span></code> simulation.</p>
 <p>For the first step we need the <code class="docutils literal notranslate"><span class="pre">KKMC</span></code> DIRAC application which we configure with the process, the number of events, the energy and
 the name of the output file.</p>
@@ -151,7 +152,7 @@ the name of the output file.</p>
 <p>For this we use the generic application DIRAC interface.</p>
 </section>
 <section id="the-script-dissected">
-<h2><span class="section-number">5.2.2.4. </span>The script, dissected<a class="headerlink" href="#the-script-dissected" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3.2.4. </span>The script, dissected<a class="headerlink" href="#the-script-dissected" title="Link to this heading"></a></h2>
 <p>The submission script for this workflow is called <a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/FCCDIRAC/master/workflows/1/FCC_Dirac_Workflow1.py">FCC_Dirac_Workflow1.py</a>.
 The script accepts one argument to control where the job is executed:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">FCC_Dirac_Workflow1</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">h</span>
@@ -177,7 +178,7 @@ The script accepts one argument to control where the job is executed:</p>
 </pre></div>
 </div>
 <section id="the-utility-function">
-<h3><span class="section-number">5.2.2.4.1. </span>The utility function<a class="headerlink" href="#the-utility-function" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.1. </span>The utility function<a class="headerlink" href="#the-utility-function" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create sandbox files</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">shutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">copy2</span>
@@ -208,7 +209,7 @@ The script accepts one argument to control where the job is executed:</p>
 </div>
 </section>
 <section id="adding-the-wms-switch">
-<h3><span class="section-number">5.2.2.4.2. </span>Adding the <code class="docutils literal notranslate"><span class="pre">--wms</span></code> switch<a class="headerlink" href="#adding-the-wms-switch" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.2. </span>Adding the <code class="docutils literal notranslate"><span class="pre">--wms</span></code> switch<a class="headerlink" href="#adding-the-wms-switch" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">DIRAC</span><span class="w"> </span><span class="kn">import</span> <span class="n">S_OK</span><span class="p">,</span> <span class="n">S_ERROR</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">DIRAC.Core.Base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Script</span>
 
@@ -231,7 +232,7 @@ The script accepts one argument to control where the job is executed:</p>
 </div>
 </section>
 <section id="the-dirac-api-instance">
-<h3><span class="section-number">5.2.2.4.3. </span>The DIRAC API instance<a class="headerlink" href="#the-dirac-api-instance" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.3. </span>The DIRAC API instance<a class="headerlink" href="#the-dirac-api-instance" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ILCDIRAC.Interfaces.API.DiracILC</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiracILC</span>
 
 <span class="n">dIlc</span> <span class="o">=</span> <span class="n">DiracILC</span><span class="p">()</span>
@@ -239,7 +240,7 @@ The script accepts one argument to control where the job is executed:</p>
 </div>
 </section>
 <section id="the-dirac-job-manager">
-<h3><span class="section-number">5.2.2.4.4. </span>The DIRAC Job manager<a class="headerlink" href="#the-dirac-job-manager" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.4. </span>The DIRAC Job manager<a class="headerlink" href="#the-dirac-job-manager" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ILCDIRAC.Interfaces.API.NewInterface.UserJob</span><span class="w"> </span><span class="kn">import</span> <span class="n">UserJob</span>
 
 <span class="n">job</span> <span class="o">=</span> <span class="n">UserJob</span><span class="p">()</span>
@@ -254,7 +255,7 @@ The script accepts one argument to control where the job is executed:</p>
 </div>
 </section>
 <section id="the-kkmc-application-instance">
-<h3><span class="section-number">5.2.2.4.5. </span>The <code class="docutils literal notranslate"><span class="pre">KKMC</span></code> application instance<a class="headerlink" href="#the-kkmc-application-instance" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.5. </span>The <code class="docutils literal notranslate"><span class="pre">KKMC</span></code> application instance<a class="headerlink" href="#the-kkmc-application-instance" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ILCDIRAC.Interfaces.API.NewInterface.Applications</span><span class="w"> </span><span class="kn">import</span> <span class="n">KKMC</span>
 
 <span class="n">kkmc</span> <span class="o">=</span> <span class="n">KKMC</span><span class="p">()</span>
@@ -271,7 +272,7 @@ The script accepts one argument to control where the job is executed:</p>
 </div>
 </section>
 <section id="the-steering-files-for-delphes">
-<h3><span class="section-number">5.2.2.4.6. </span>The steering files for <code class="docutils literal notranslate"><span class="pre">Delphes</span></code><a class="headerlink" href="#the-steering-files-for-delphes" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.6. </span>The steering files for <code class="docutils literal notranslate"><span class="pre">Delphes</span></code><a class="headerlink" href="#the-steering-files-for-delphes" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Delphes card</span>
 <span class="n">delphescardpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="s1">&#39;$DELPHES/cards/delphes_card_IDEA.tcl&#39;</span><span class="p">)</span>
 <span class="n">delphescard</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">delphescardpath</span><span class="p">)</span>
@@ -290,14 +291,14 @@ The script accepts one argument to control where the job is executed:</p>
 </div>
 </section>
 <section id="completing-the-sandbox-for-delphes">
-<h3><span class="section-number">5.2.2.4.7. </span>Completing the sandbox for <code class="docutils literal notranslate"><span class="pre">Delphes</span></code><a class="headerlink" href="#completing-the-sandbox-for-delphes" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.7. </span>Completing the sandbox for <code class="docutils literal notranslate"><span class="pre">Delphes</span></code><a class="headerlink" href="#completing-the-sandbox-for-delphes" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the sandbox content</span>
 <span class="n">job</span><span class="o">.</span><span class="n">setInputSandbox</span><span class="p">([</span><span class="s1">&#39;./&#39;</span> <span class="o">+</span> <span class="n">delphescard</span><span class="p">,</span> <span class="s1">&#39;./&#39;</span> <span class="o">+</span> <span class="n">edm4hepoutdef</span><span class="p">,</span> <span class="s1">&#39;./&#39;</span> <span class="o">+</span> <span class="n">pythiacard</span><span class="p">])</span>
 </pre></div>
 </div>
 </section>
 <section id="standalone-delphes-using-the-dirac-generic-application">
-<h3><span class="section-number">5.2.2.4.8. </span>Standalone <code class="docutils literal notranslate"><span class="pre">Delphes</span></code> using the DIRAC generic application<a class="headerlink" href="#standalone-delphes-using-the-dirac-generic-application" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.8. </span>Standalone <code class="docutils literal notranslate"><span class="pre">Delphes</span></code> using the DIRAC generic application<a class="headerlink" href="#standalone-delphes-using-the-dirac-generic-application" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ILCDIRAC.Interfaces.API.NewInterface.Applications</span><span class="w"> </span><span class="kn">import</span> <span class="n">GenericApplication</span>
 
 <span class="n">ga</span> <span class="o">=</span> <span class="n">GenericApplication</span><span class="p">()</span>
@@ -310,7 +311,7 @@ The script accepts one argument to control where the job is executed:</p>
 </div>
 </section>
 <section id="submitting-the-job-to-the-chosen-wms">
-<h3><span class="section-number">5.2.2.4.9. </span>Submitting the job to the chosen WMS<a class="headerlink" href="#submitting-the-job-to-the-chosen-wms" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.4.9. </span>Submitting the job to the chosen WMS<a class="headerlink" href="#submitting-the-job-to-the-chosen-wms" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">submitmode</span><span class="o">=</span><span class="s1">&#39;wms&#39;</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">servicesList</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">submitmode</span><span class="o">=</span> <span class="n">servicesList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -320,7 +321,7 @@ The script accepts one argument to control where the job is executed:</p>
 </section>
 </section>
 <section id="running-the-script-on-lxplus">
-<h2><span class="section-number">5.2.2.5. </span>Running the script on lxplus<a class="headerlink" href="#running-the-script-on-lxplus" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3.2.5. </span>Running the script on lxplus<a class="headerlink" href="#running-the-script-on-lxplus" title="Link to this heading"></a></h2>
 <p>Suggestion is, after having cloned the repository and initialized the environment, to go to the workflow sub-directory, created a ‘run’ sub-directory and run
 from there:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd workflow/1
@@ -328,7 +329,7 @@ $ mkdir run; cd run
 </pre></div>
 </div>
 <section id="local-submission">
-<h3><span class="section-number">5.2.2.5.1. </span>Local submission<a class="headerlink" href="#local-submission" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.5.1. </span>Local submission<a class="headerlink" href="#local-submission" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>../FCC_Dirac_Workflow1.py<span class="w"> </span>--wms<span class="w"> </span><span class="nb">local</span>
 </pre></div>
 </div>
@@ -384,7 +385,7 @@ $ ls -lt Local_pQl06k_JobDir/*.log
 </div>
 </section>
 <section id="wms-submission">
-<h3><span class="section-number">5.2.2.5.2. </span>WMS submission<a class="headerlink" href="#wms-submission" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2.5.2. </span>WMS submission<a class="headerlink" href="#wms-submission" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>../FCC_Dirac_Workflow1.py
 </pre></div>
 </div>
@@ -453,8 +454,8 @@ $ ls -lt kktautau_delphes_edm4hep_output.root
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../Overview.html" class="btn btn-neutral float-left" title="5.2.1. Overview of the submission scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../OutputStructure.html" class="btn btn-neutral float-right" title="5.3. Structure for /eos/experiment/fcc/prod" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Overview.html" class="btn btn-neutral float-left" title="5.3.1. Overview of the Submission Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../OutputStructure.html" class="btn btn-neutral float-right" title="5.4. Structure for /eos/experiment/fcc/prod" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

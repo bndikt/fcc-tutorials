@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.2.1. Overview of the submission scripts &mdash; FCC Tutorials  documentation</title>
+  <title>5.3.1. Overview of the Submission Scripts &mdash; FCC Tutorials  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
@@ -31,8 +31,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.2.2. Workflow 1" href="01/DiTauKKMCeeDelphesStandAlone.html" />
-    <link rel="prev" title="5.2. FCC DIRAC example workflows" href="../Workflows.html" /> 
+    <link rel="next" title="5.3.2. Workflow 1" href="01/DiTauKKMCeeDelphesStandAlone.html" />
+    <link rel="prev" title="5.3. FCC DIRAC Example Workflows" href="../Workflows.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,20 +58,21 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../1-first-steps/README.html">1. First Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../2-gen-and-fastsim/README.html">2. Generation and Fast Simulation with Delphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../3-fccanalyses/README.html">3. FCCAnalyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2-gen-and-fastsim/README.html">2. Generation and Fast Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../3-analysis/README.html">3. Analysis at FCC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../4-full-detector-sim/README.html">4. Full Simulation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../README.html">5. Distributed computing</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../RegisteringToFccVO.html">5.1. Getting started with FCC distributed computing</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../Workflows.html">5.2. FCC DIRAC example workflows</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">5.2.1. Overview of the submission scripts</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#before-starting-cloning-of-workflows-repository">5.2.1.1. Before starting: cloning of workflows repository</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">5. Distributed Computing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../EventProducer.html">5.1. EventProducer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RegisteringToFccVO.html">5.2. Getting Started with DIRAC</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Workflows.html">5.3. FCC DIRAC Example Workflows</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.3.1. Overview of the Submission Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#before-starting-cloning-of-workflows-repository">5.3.1.1. Before starting: cloning of workflows repository</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="01/DiTauKKMCeeDelphesStandAlone.html">5.2.2. Workflow 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01/DiTauKKMCeeDelphesStandAlone.html">5.3.2. Workflow 1</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../OutputStructure.html">5.3. Structure for /eos/experiment/fcc/prod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OutputStructure.html">5.4. Structure for /eos/experiment/fcc/prod</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../6-developing-fccsw/README.html">6. Developing FCCSW</a></li>
@@ -100,9 +101,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../README.html"><span class="section-number">5. </span>Distributed computing</a></li>
-          <li class="breadcrumb-item"><a href="../Workflows.html"><span class="section-number">5.2. </span>FCC DIRAC example workflows</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">5.2.1. </span>Overview of the submission scripts</li>
+          <li class="breadcrumb-item"><a href="../README.html"><span class="section-number">5. </span>Distributed Computing</a></li>
+          <li class="breadcrumb-item"><a href="../Workflows.html"><span class="section-number">5.3. </span>FCC DIRAC Example Workflows</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5.3.1. </span>Overview of the Submission Scripts</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/HEP-FCC/fcc-tutorials/blob/main/5-distributed-computing/workflows/Overview.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -113,7 +114,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="overview-of-the-submission-scripts">
-<h1><span class="section-number">5.2.1. </span>Overview of the submission scripts<a class="headerlink" href="#overview-of-the-submission-scripts" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5.3.1. </span>Overview of the Submission Scripts<a class="headerlink" href="#overview-of-the-submission-scripts" title="Link to this heading"></a></h1>
 <p>Command line submission to DIRAC is performed using python scripts instantiating the relevant classes.
 The general structure of the script is the following:</p>
 <ol class="arabic simple">
@@ -199,7 +200,7 @@ An example is the following:</p>
 </div>
 <p>Local submission can be used for testing.</p>
 <section id="before-starting-cloning-of-workflows-repository">
-<h2><span class="section-number">5.2.1.1. </span>Before starting: cloning of workflows repository<a class="headerlink" href="#before-starting-cloning-of-workflows-repository" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3.1.1. </span>Before starting: cloning of workflows repository<a class="headerlink" href="#before-starting-cloning-of-workflows-repository" title="Link to this heading"></a></h2>
 <p>The example scripts described in these pages, together with the relevant setup scripts, are available from the
 <a class="reference external" href="https://github.com/HEP-FCC/FCCDIRAC">FCCDIRAC</a> repository.</p>
 <p>The following steps must be executed (only once!) before trying to execute any of the workflows:</p>
@@ -248,8 +249,8 @@ Proxies<span class="w"> </span>uploaded:
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../Workflows.html" class="btn btn-neutral float-left" title="5.2. FCC DIRAC example workflows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="01/DiTauKKMCeeDelphesStandAlone.html" class="btn btn-neutral float-right" title="5.2.2. Workflow 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Workflows.html" class="btn btn-neutral float-left" title="5.3. FCC DIRAC Example Workflows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="01/DiTauKKMCeeDelphesStandAlone.html" class="btn btn-neutral float-right" title="5.3.2. Workflow 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
