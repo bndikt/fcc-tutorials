@@ -1,4 +1,4 @@
-# Getting started with FCC distributed computing
+# Getting Started with DIRAC
 
 <!-- contributors:start -->
 :::{admonition} Page contributors

@@ -1,4 +1,4 @@
-# Overview of the submission scripts
+# Overview of the Submission Scripts
 
 <!-- contributors:start -->
 :::{admonition} Page contributors

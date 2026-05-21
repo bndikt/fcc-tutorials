@@ -1,4 +1,4 @@
-# FCC DIRAC example workflows
+# FCC DIRAC Example Workflows
 
 <!-- contributors:start -->
 :::{admonition} Page contributors
