@@ -4,7 +4,8 @@ The preceding chapters introduced event generation and detector simulation. The 
 
 [FCCAnalyses](https://hep-fcc.github.io/FCCAnalyses/) provides tools for this step. It combines access to EDM4hep objects, reusable physics algorithms, and ROOT's event-processing tools. In this chapter, you will use it to build particle candidates, select events, and produce distribution plots for signal and background samples.
 
-## Where FCCAnalyses fits
+```{rubric} Where FCCAnalyses fits
+```
 
 Several packages work together in an FCC analysis:
 
@@ -18,7 +19,8 @@ Several packages work together in an FCC analysis:
 
 The analysis is configured in Python, while many calculations are performed in C++. For example, a Python script can ask RDataFrame to create a column using a C++ function from FCCAnalyses. You can also provide your own helper functions in a header that ROOT compiles just in time.
 
-## Thinking in columns and selections
+```{rubric} Thinking in columns and selections
+```
 
 An RDataFrame analysis describes a computation graph. Each event supplies input collections, and operations define how those inputs are used:
 
@@ -31,7 +33,8 @@ A column may contain one value per event or a collection of values. Selecting mu
 
 RDataFrame evaluates work lazily. Defining columns, adding filters, and booking histograms builds the graph; requesting the results triggers processing. Booking the required histograms before evaluating them allows several distributions to be filled in the same event loop.
 
-## Two ways to organise the work
+```{rubric} Two ways to organise the work
+```
 
 For a compact analysis, we can calculate observables, apply selections, and fill histograms all in one step:
 
@@ -54,7 +57,8 @@ The second workflow lets us change cuts without repeating candidate reconstructi
 
 Section 3.1 introduces both workflows through the same Higgs signal and background samples. Part I uses a `build_graph` method to perform a recoil analysis in one step. Part II adds jet reconstruction and flavour tagging, then separates ntuple production, final selections, and plotting into individual stages.
 
-## Working through this chapter
+```{rubric} Working through this chapter
+```
 
 - [Higgs analysis](3-1-higgs-analysis/README.md): follow reconstructed events through candidate building, event selection, normalisation, and plotting.
 - [Tracking and vertexing](3-2-tracking-vertexing/README.md): explore more involved tracking and vertexing examples.
