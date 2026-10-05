@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Analysis at FCC &mdash; FCC Tutorials  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom-admonitions.css?v=e6bfab01" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.4.1. Getting Started: Higgs Analysis with FCCAnalyses" href="3-1-higgs-analysis/README.html" />
+    <link rel="prev" title="2.3. EDM4hep Event Data Explorer: eedE" href="../2-gen-and-fastsim/2-4-eedE/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            FCC Tutorials
+              <img src="../_static/fcc-logo-light.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1-first-steps/README.html">1. First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-gen-and-fastsim/README.html">2. Generation and Fast Simulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Analysis at FCC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-fccanalyses-fits">3.1. Where FCCAnalyses fits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thinking-in-columns-and-selections">3.2. Thinking in columns and selections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#two-ways-to-organise-the-work">3.3. Two ways to organise the work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-through-this-chapter">3.4. Working through this chapter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html">3.4.1. Getting Started: Higgs Analysis with FCCAnalyses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html">3.4.2. Beyond the Basics: Tracking and Vertexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html">3.4.3. Some Useful Info on EDM4hep, Analyzers, and More</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4-full-detector-sim/README.html">4. Full Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5-distributed-computing/README.html">5. Distributed Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6-developing-fccsw/README.html">6. Developing FCCSW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7-contributing/README.html">7. Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://fccsw.web.cern.ch/">FCC Software</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://key4hep.web.cern.ch">Key4hep</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://fcc-ee-detector-full-sim.docs.cern.ch/">FCC-ee Detector Full Sim</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://hep-fcc.github.io/FCCAnalyses/">FCCAnalyses</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">HSF Analysis essentials</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://hep-fcc.github.io/glossary">FCC Software glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FCC Tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Analysis at FCC</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HEP-FCC/fcc-tutorials/blob/main/3-analysis/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="analysis-at-fcc">
+<h1><span class="section-number">3. </span>Analysis at FCC<a class="headerlink" href="#analysis-at-fcc" title="Link to this heading"></a></h1>
+<p>The preceding chapters introduced event generation and detector simulation. The next step is to use reconstructed events to answer for example the following physics questions: which events resemble our signal, which observables distinguish them from backgrounds, and how many events do we expect to observe?</p>
+<p><a class="reference external" href="https://hep-fcc.github.io/FCCAnalyses/">FCCAnalyses</a> provides tools for this step. It combines access to EDM4hep objects, reusable physics algorithms, and ROOT’s event-processing tools. In this chapter, you will use it to build particle candidates, select events, and produce distribution plots for signal and background samples.</p>
+<section id="where-fccanalyses-fits">
+<h2><span class="section-number">3.1. </span>Where FCCAnalyses fits<a class="headerlink" href="#where-fccanalyses-fits" title="Link to this heading"></a></h2>
+<p>Several packages work together in an FCC analysis:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Role in the analysis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Key4hep</p></td>
+<td><p>Provides a compatible software environment containing the packages used along the event-processing chain.</p></td>
+</tr>
+<tr class="row-odd"><td><p>EDM4hep</p></td>
+<td><p>Defines particles, tracks, vertices, detector hits, and their relations. The tutorial starts from reconstructed events stored in this format.</p></td>
+</tr>
+<tr class="row-even"><td><p>ROOT RDataFrame</p></td>
+<td><p>Describes and executes operations on event data, including new observables, selections, and histograms.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FCCAnalyses</p></td>
+<td><p>Provides analysis steering and reusable algorithms for working with these objects.</p></td>
+</tr>
+<tr class="row-even"><td><p>Your analysis</p></td>
+<td><p>Specifies the input samples, physics calculations, selections, and outputs needed for your study.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The analysis is configured in Python, while many calculations are performed in C++. For example, a Python script can ask RDataFrame to create a column using a C++ function from FCCAnalyses. You can also provide your own helper functions in a header that ROOT compiles just in time.</p>
+</section>
+<section id="thinking-in-columns-and-selections">
+<h2><span class="section-number">3.2. </span>Thinking in columns and selections<a class="headerlink" href="#thinking-in-columns-and-selections" title="Link to this heading"></a></h2>
+<p>An RDataFrame analysis describes a computation graph. Each event supplies input collections, and operations define how those inputs are used:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Alias()</span></code> gives an existing column another name, useful for accessing relation fields.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Define()</span></code> creates a column, such as the selected muons or a candidate’s mass.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Filter()</span></code> keeps events that satisfy a condition.</p></li>
+<li><p>Histogram actions accumulate distributions, while an output operation such as <code class="docutils literal notranslate"><span class="pre">Snapshot()</span></code> writes selected columns to a new file.</p></li>
+</ul>
+<p>A column may contain one value per event or a collection of values. Selecting muons within an event therefore differs from selecting the event itself: an event can remain in the dataframe even when its selected-muon collection is empty.</p>
+<p>RDataFrame evaluates work lazily. Defining columns, adding filters, and booking histograms builds the graph; requesting the results triggers processing. Booking the required histograms before evaluating them allows several distributions to be filled in the same event loop.</p>
+</section>
+<section id="two-ways-to-organise-the-work">
+<h2><span class="section-number">3.3. </span>Two ways to organise the work<a class="headerlink" href="#two-ways-to-organise-the-work" title="Link to this heading"></a></h2>
+<p>For a compact analysis, we can calculate observables, apply selections, and fill histograms all in one step:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reconstructed events → observables and selections → histograms → plots
+</pre></div>
+</div>
+<p>For a computationally more expensive analysis, we can first save a reduced ntuple containing only the observables needed for later processing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reconstructed events → observables and pre-selections → reduced ntuple
+</pre></div>
+</div>
+<p>then</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>reduced ntuple → selections and histograms → plots
+</pre></div>
+</div>
+<p>The second workflow lets us change cuts without repeating candidate reconstruction and processings like flavour tagging. Its tradeoff is that later steps can use only the information saved in the ntuple; a change to the reconstruction or a missing observable requires rerunning the first stage.</p>
+<p>Section 3.1 introduces both workflows through the same Higgs signal and background samples. Part I uses a <code class="docutils literal notranslate"><span class="pre">build_graph</span></code> method to perform a recoil analysis in one step. Part II adds jet reconstruction and flavour tagging, then separates ntuple production, final selections, and plotting into individual stages.</p>
+</section>
+<section id="working-through-this-chapter">
+<h2><span class="section-number">3.4. </span>Working through this chapter<a class="headerlink" href="#working-through-this-chapter" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="3-1-higgs-analysis/README.html"><span class="std std-doc">Higgs analysis</span></a>: follow reconstructed events through candidate building, event selection, normalisation, and plotting.</p></li>
+<li><p><a class="reference internal" href="3-2-tracking-vertexing/README.html"><span class="std std-doc">Tracking and vertexing</span></a>: explore more involved tracking and vertexing examples.</p></li>
+<li><p><a class="reference internal" href="3-3-useful-info/README.html"><span class="std std-doc">Further information</span></a>: consult the reference material on EDM4hep collections and C++ analyzers when you need more detail.</p></li>
+</ul>
+<p>If you have problems or questions, <a class="reference external" href="https://github.com/HEP-FCC/fcc-tutorials/issues">open an issue</a> on the <a class="reference external" href="https://github.com/HEP-FCC/fcc-tutorials">tutorial repository</a>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3-1-higgs-analysis/README.html">3.4.1. Getting Started: Higgs Analysis with FCCAnalyses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3-1-higgs-analysis/README.html#physics-goal-and-learning-objectives">3.4.1.1. Physics goal and learning objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-1-higgs-analysis/README.html#prepare-the-environment-and-samples">3.4.1.2. Prepare the environment and samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-1-higgs-analysis/README.html#part-i-recoil-mass-with-a-histmaker">3.4.1.3. Part I — Recoil mass with a histmaker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#read-the-script-configuration">Read the script configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#select-the-input-samples-with-processlist">Select the input samples with <code class="docutils literal notranslate"><span class="pre">processList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#locate-the-input-files-with-inputdir">Locate the input files with <code class="docutils literal notranslate"><span class="pre">inputDir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#choose-the-output-location-with-outputdir">Choose the output location with <code class="docutils literal notranslate"><span class="pre">outputDir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#load-the-additional-c-functions">Load the additional C++ functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#set-processing-and-normalisation-options">Set processing and normalisation options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#how-the-histmaker-works">How the histmaker works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#muon-reconstruction-and-selection">Muon reconstruction and selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#z-candidate-reconstruction">Z-candidate reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#understand-the-recoil-mass">Understand the recoil mass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#selections-and-histogram-booking">Selections and histogram booking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#sample-normalisation">Sample normalisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#run-part-i">Run Part I</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#inspect-the-plots">Inspect the plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-1-higgs-analysis/README.html#part-ii-jets-and-flavour-tagging-in-a-staged-analysis">3.4.1.4. Part II — Jets and flavour tagging in a staged analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#stage-1-reconstruct-candidates-and-save-observables">Stage 1: reconstruct candidates and save observables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#the-analysis-class-interface">The Analysis class interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#identify-and-retrieve-the-flavour-tagging-model">Identify and retrieve the flavour-tagging model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#connect-the-model-to-event-collections">Connect the model to event collections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#build-the-event-graph-and-cluster-two-jets">Build the event graph and cluster two jets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#calculate-the-saved-observables">Calculate the saved observables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#choose-which-columns-are-written">Choose which columns are written</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#stage-2-apply-selections-and-fill-histograms">Stage 2: apply selections and fill histograms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#apply-the-supplied-cumulative-cuts">Apply the supplied cumulative cuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#preserve-the-stage-1-efficiency-when-normalising">Preserve the stage-1 efficiency when normalising</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3-1-higgs-analysis/README.html#specify-the-histograms-with-histolist">Specify the histograms with <code class="docutils literal notranslate"><span class="pre">histoList</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#stage-3-produce-the-plots">Stage 3: produce the plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-1-higgs-analysis/README.html#run-part-ii">Run Part II</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-1-higgs-analysis/README.html#understand-the-completed-results">3.4.1.5. Understand the completed results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-1-higgs-analysis/README.html#further-exercises">3.4.1.6. Further exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-1-higgs-analysis/README.html#beyond-this-tutorial">3.4.1.7. Beyond this tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3-2-tracking-vertexing/README.html">3.4.2. Beyond the Basics: Tracking and Vertexing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3-2-tracking-vertexing/README.html#getting-the-fccanalyses">3.4.2.1. Getting the FCCAnalyses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-2-tracking-vertexing/README.html#adding-analyzers-to-the-fccanalyses">3.4.2.2. Adding analyzers to the FCCAnalyses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#exercise">Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-2-tracking-vertexing/README.html#reconstruction-of-the-primary-vertex-and-of-primary-tracks">3.4.2.3. Reconstruction of the primary vertex and of primary tracks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#exercise-2">Exercise 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#exercise-3">Exercise 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#exercise-4">Exercise 4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-2-tracking-vertexing/README.html#reconstruction-of-displaced-vertices-in-an-exclusive-decay-chain">3.4.2.4. Reconstruction of displaced vertices in an exclusive decay chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-2-tracking-vertexing/README.html#analysis-of-tau-rightarrow-3-mu">3.4.2.5. Analysis of <span class="math notranslate nohighlight">\(\tau \rightarrow 3 \mu\)</span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#id1">Exercise 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#id2">Exercise 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#id3">Exercise 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#id4">Exercise 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#exercise-5">Exercise 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-2-tracking-vertexing/README.html#exercise-6">Exercise 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3-3-useful-info/README.html">3.4.3. Some Useful Info on EDM4hep, Analyzers, and More</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#edm4hep-in-fccanalyses">3.4.3.1. EDM4hep in FCCAnalyses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html#edm4hep-event-model">EDM4hep event model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html#structure-of-edm4hep-files">Structure of EDM4hep Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#overall-organisation-of-analysis-code-c">3.4.3.2. Overall organisation of analysis code (C++)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#reading-objects-from-edm4hep">3.4.3.3. Reading objects from EDM4hep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#association-between-recoparticles-and-montecarloparticles">3.4.3.4. Association between <code class="docutils literal notranslate"><span class="pre">RecoParticles</span></code> and <code class="docutils literal notranslate"><span class="pre">MonteCarloParticles</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#navigation-through-the-history-of-the-mc-particles">3.4.3.5. Navigation through the history of the MC particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#writing-a-new-analyzer">3.4.3.6. Writing a new analyzer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html#c-string">C++ string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html#using-root-ginterpreter">Using ROOT gInterpreter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html#inside-an-existing-fccanalyses-module">Inside an existing FCCAnalyses module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#writing-a-new-struct">3.4.3.7. Writing a new struct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#writing-a-new-module">3.4.3.8. Writing a new module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-3-useful-info/README.html#writing-your-own-analysis-using-the-case-studies-generator">3.4.3.9. Writing your own analysis using the case-studies generator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html#analysis-package-generation">Analysis package generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3-3-useful-info/README.html#analysis-package-exposure-to-rdf">Analysis package exposure to RDF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../2-gen-and-fastsim/2-4-eedE/README.html" class="btn btn-neutral float-left" title="2.3. EDM4hep Event Data Explorer: eedE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3-1-higgs-analysis/README.html" class="btn btn-neutral float-right" title="3.4.1. Getting Started: Higgs Analysis with FCCAnalyses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, CERN.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: dev
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../main/index.html">main</a></dd>
+      <dd><a href="README.html">dev</a></dd>
+      <dd><a href="../../edm4hep-update/index.html">edm4hep-update</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

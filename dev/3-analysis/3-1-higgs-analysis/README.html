@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4.1. Getting Started: Higgs Analysis with FCCAnalyses &mdash; FCC Tutorials  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom-admonitions.css?v=e6bfab01" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.4.2. Beyond the Basics: Tracking and Vertexing" href="../3-2-tracking-vertexing/README.html" />
+    <link rel="prev" title="3. Analysis at FCC" href="../README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            FCC Tutorials
+              <img src="../../_static/fcc-logo-light.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../1-first-steps/README.html">1. First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../2-gen-and-fastsim/README.html">2. Generation and Fast Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../README.html">3. Analysis at FCC</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../README.html#where-fccanalyses-fits">3.1. Where FCCAnalyses fits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../README.html#thinking-in-columns-and-selections">3.2. Thinking in columns and selections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../README.html#two-ways-to-organise-the-work">3.3. Two ways to organise the work</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../README.html#working-through-this-chapter">3.4. Working through this chapter</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.4.1. Getting Started: Higgs Analysis with FCCAnalyses</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#physics-goal-and-learning-objectives">3.4.1.1. Physics goal and learning objectives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-the-environment-and-samples">3.4.1.2. Prepare the environment and samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part-i-recoil-mass-with-a-histmaker">3.4.1.3. Part I — Recoil mass with a histmaker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#part-ii-jets-and-flavour-tagging-in-a-staged-analysis">3.4.1.4. Part II — Jets and flavour tagging in a staged analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understand-the-completed-results">3.4.1.5. Understand the completed results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#further-exercises">3.4.1.6. Further exercises</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#beyond-this-tutorial">3.4.1.7. Beyond this tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../3-2-tracking-vertexing/README.html">3.4.2. Beyond the Basics: Tracking and Vertexing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3-3-useful-info/README.html">3.4.3. Some Useful Info on EDM4hep, Analyzers, and More</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../4-full-detector-sim/README.html">4. Full Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5-distributed-computing/README.html">5. Distributed Computing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../6-developing-fccsw/README.html">6. Developing FCCSW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../7-contributing/README.html">7. Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://fccsw.web.cern.ch/">FCC Software</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://key4hep.web.cern.ch">Key4hep</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://fcc-ee-detector-full-sim.docs.cern.ch/">FCC-ee Detector Full Sim</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://hep-fcc.github.io/FCCAnalyses/">FCCAnalyses</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://hsf-training.github.io/analysis-essentials/">HSF Analysis essentials</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://hep-fcc.github.io/glossary">FCC Software glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">FCC Tutorials</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../README.html"><span class="section-number">3. </span>Analysis at FCC</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3.4.1. </span>Getting Started: Higgs Analysis with FCCAnalyses</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/HEP-FCC/fcc-tutorials/blob/main/3-analysis/3-1-higgs-analysis/README.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-higgs-analysis-with-fccanalyses">
+<h1><span class="section-number">3.4.1. </span>Getting Started: Higgs Analysis with FCCAnalyses<a class="headerlink" href="#getting-started-higgs-analysis-with-fccanalyses" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>Original authors: Michele Selvaggi, Benedikt Wach</p>
+</div></blockquote>
+<section id="physics-goal-and-learning-objectives">
+<h2><span class="section-number">3.4.1.1. </span>Physics goal and learning objectives<a class="headerlink" href="#physics-goal-and-learning-objectives" title="Link to this heading"></a></h2>
+<p>We will study Higgs production at a centre-of-mass energy of 240 GeV, targeting</p>
+<div class="math notranslate nohighlight">
+\[
+e^+e^- \to ZH \to \mu^+\mu^-b\bar b.
+\]</div>
+<p>The reconstructed muon pair identifies a Z candidate. We can look for the Higgs through the mass of the system recoiling against that candidate, or reconstruct its decay products as two jets. These observables use different parts of the event and provide complementary information.</p>
+<p>Both parts use the same signal and background samples:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sample</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wzp8_ee_mumuH_Hbb_ecm240</span></code></p></td>
+<td><p>Signal with a muon pair and a Higgs forced to decay to bottom quarks</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p8_ee_ZZ_mumubb_ecm240</span></code></p></td>
+<td><p>Background with the same muon-pair and bottom-quark final state</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p8_ee_WW_mumu_ecm240</span></code></p></td>
+<td><p>Background with muons and neutrinos from W decays</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Part I</strong> uses the muons to construct the recoil mass and fills histograms directly from reconstructed events. <strong>Part II</strong> extends the analysis with jets and flavour tagging, saving a reduced ntuple and then applying predefined cuts in a separate stage.</p>
+<div class="objectives admonition">
+<p class="admonition-title">Learning objectives</p>
+<p>By the end of this tutorial, you should be able to:</p>
+<ul class="simple">
+<li><p>retrieve physics objects from EDM4hep collections and relations;</p></li>
+<li><p>distinguish object selection, candidate reconstruction, and event selection;</p></li>
+<li><p>build an RDataFrame graph with C++ expressions and helper functions;</p></li>
+<li><p>produce histograms directly with <code class="docutils literal notranslate"><span class="pre">build_graph</span></code>;</p></li>
+<li><p>organise reconstruction, final selections, and plotting into separate stages;</p></li>
+<li><p>interpret recoil mass, dijet mass, flavour scores, and cut flows;</p></li>
+</ul>
+</div>
+</section>
+<section id="prepare-the-environment-and-samples">
+<h2><span class="section-number">3.4.1.2. </span>Prepare the environment and samples<a class="headerlink" href="#prepare-the-environment-and-samples" title="Link to this heading"></a></h2>
+<p>Use an environment with FCCAnalyses and its dependencies available. On a supported system with the Key4hep CVMFS installation, start a fresh shell and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/cvmfs/sw.hsf.org/key4hep/setup.sh
+fccanalysis<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>Create a local working directory for the tutorial:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>tutorial/inputs
+<span class="nb">cd</span><span class="w"> </span>tutorial
+</pre></div>
+</div>
+<p>Run all commands below from this <code class="docutils literal notranslate"><span class="pre">tutorial</span></code> directory.</p>
+<p>The input files use the following directory layout. Each directory name matches a sample identifier:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>inputs/
+├── wzp8_ee_mumuH_Hbb_ecm240/
+│   └── wzp8_ee_mumuH_Hbb_ecm240.edm4hep.root
+├── p8_ee_ZZ_mumubb_ecm240/
+│   └── p8_ee_ZZ_mumubb_ecm240.edm4hep.root
+└── p8_ee_WW_mumu_ecm240/
+    └── p8_ee_WW_mumu_ecm240.edm4hep.root
+</pre></div>
+</div>
+<p>Download the required samples into this structure:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">sample_base</span><span class="o">=</span>https://fccsw.web.cern.ch/tutorials/gen-to-ana/bnl-cern-2026/delphes
+<span class="k">for</span><span class="w"> </span>sample<span class="w"> </span><span class="k">in</span><span class="w"> </span>wzp8_ee_mumuH_Hbb_ecm240<span class="w"> </span>p8_ee_ZZ_mumubb_ecm240<span class="w"> </span>p8_ee_WW_mumu_ecm240<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;inputs/</span><span class="nv">$sample</span><span class="s2">&quot;</span>
+<span class="w">    </span>wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;inputs/</span><span class="nv">$sample</span><span class="s2">/</span><span class="nv">$sample</span><span class="s2">.edm4hep.root&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="s2">&quot;</span><span class="nv">$sample_base</span><span class="s2">/</span><span class="nv">$sample</span><span class="s2">/</span><span class="nv">$sample</span><span class="s2">.edm4hep.root&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Download the scripts for both parts and their supporting files into the same working directory. They are adapted from the <a class="reference external" href="https://github.com/HEP-FCC/LiveSoftwareTutorials/tree/main/Analysis/ee">LiveSoftwareTutorials FCC-ee analysis</a>, with fixed selections and a common normalisation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">script_base</span><span class="o">=</span>https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>histmaker_recoil.py<span class="w"> </span>plots_recoil.py<span class="w"> </span>treemaker_flavor.py<span class="w"> </span>selection_flavor.py<span class="w"> </span>plots_flavor.py<span class="w"> </span>functions.h<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>wget<span class="w"> </span>-O<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$script_base</span><span class="s2">/</span><span class="nv">$file</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>Below a breakdown of their usage is shown:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Files</p></th>
+<th class="head"><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>I: direct histograms</p></td>
+<td><p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/histmaker_recoil.py">histmaker_recoil.py</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outputs/recoil/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>I: plots</p></td>
+<td><p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/plots_recoil.py">plots_recoil.py</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outputs/plots/recoil/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>II: reduced ntuple</p></td>
+<td><p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/treemaker_flavor.py">treemaker_flavor.py</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outputs/flavor/stage1/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>II: selections and histograms</p></td>
+<td><p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/selection_flavor.py">selection_flavor.py</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outputs/flavor/stage2/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>II: plots</p></td>
+<td><p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/plots_flavor.py">plots_flavor.py</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outputs/plots/flavor/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The scripts use the accompanying <a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/functions.h">functions.h</a> for muon isolation and Z-candidate building.</p>
+</section>
+<section id="part-i-recoil-mass-with-a-histmaker">
+<h2><span class="section-number">3.4.1.3. </span>Part I — Recoil mass with a histmaker<a class="headerlink" href="#part-i-recoil-mass-with-a-histmaker" title="Link to this heading"></a></h2>
+<p>Part I uses two commands.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>histmaker_recoil.py: EDM4hep → muon selection → Z candidate → recoil selection → histograms
+plots_recoil.py:     histograms → plots
+</pre></div>
+</div>
+<p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/histmaker_recoil.py">histmaker_recoil.py</a> reconstructs the muons, applies every selection, and writes histograms to <code class="docutils literal notranslate"><span class="pre">outputs/recoil/</span></code>. <a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/plots_recoil.py">plots_recoil.py</a> then writes PDF plots to <code class="docutils literal notranslate"><span class="pre">outputs/plots/recoil/</span></code>, showing the dimuon mass, dimuon momentum, and recoil mass after all cuts.</p>
+<p>The following sections explain the supplied reconstruction steps, cuts, and plotting settings.</p>
+<section id="read-the-script-configuration">
+<h3>Read the script configuration<a class="headerlink" href="#read-the-script-configuration" title="Link to this heading"></a></h3>
+<p>Open <code class="docutils literal notranslate"><span class="pre">histmaker_recoil.py</span></code>. The settings above <code class="docutils literal notranslate"><span class="pre">build_graph</span></code> tell FCCAnalyses which samples to read, where to write the results, and how to normalise them. The function below those settings describes what to do with each event.</p>
+<p>The first settings, such as <code class="docutils literal notranslate"><span class="pre">MUON_MOMENTUM_MIN</span></code> and <code class="docutils literal notranslate"><span class="pre">Z_MASS_MIN</span></code>, are named selection thresholds. The graph uses them later when selecting muons and events.</p>
+<section id="select-the-input-samples-with-processlist">
+<h4>Select the input samples with <code class="docutils literal notranslate"><span class="pre">processList</span></code><a class="headerlink" href="#select-the-input-samples-with-processlist" title="Link to this heading"></a></h4>
+<p>The histmaker interface reads the top-level Python dictionary <code class="docutils literal notranslate"><span class="pre">processList</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">processList</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;wzp8_ee_mumuH_Hbb_ecm240&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fraction&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;crossSection&quot;</span><span class="p">:</span> <span class="mf">0.00394</span><span class="p">,</span>
+        <span class="s2">&quot;kfactor&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;matchingEfficiency&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;p8_ee_ZZ_mumubb_ecm240&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fraction&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;crossSection&quot;</span><span class="p">:</span> <span class="mf">0.01404652064</span><span class="p">,</span>
+        <span class="s2">&quot;kfactor&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;matchingEfficiency&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;p8_ee_WW_mumu_ecm240&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fraction&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;crossSection&quot;</span><span class="p">:</span> <span class="mf">0.25792</span><span class="p">,</span>
+        <span class="s2">&quot;kfactor&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s2">&quot;matchingEfficiency&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each key is a process name identifying one simulated sample. Its nested dictionary contains settings for that sample:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">=</span> <span class="pre">1.0</span></code> requests the full available sample.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">crossSection</span></code> gives the effective cross section in pb, including the branching fractions for the generated final state.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kfactor</span></code> and <code class="docutils literal notranslate"><span class="pre">matchingEfficiency</span></code> are additional multiplicative normalisation factors. Both are <code class="docutils literal notranslate"><span class="pre">1.0</span></code> here, so they leave the cross section unchanged.</p></li>
+</ul>
+<p>The spelling of each process name matters: FCCAnalyses uses it to locate the sample’s input files. Listing a process does not download its events; the sample-download commands above create the required files.</p>
+<p>Part I uses the histmaker names <code class="docutils literal notranslate"><span class="pre">processList</span></code>, <code class="docutils literal notranslate"><span class="pre">inputDir</span></code>, and <code class="docutils literal notranslate"><span class="pre">outputDir</span></code>. In Part II, the <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> class uses <code class="docutils literal notranslate"><span class="pre">self.process_list</span></code>, <code class="docutils literal notranslate"><span class="pre">self.input_dir</span></code>, and <code class="docutils literal notranslate"><span class="pre">self.output_dir</span></code> for the corresponding stage-1 settings.</p>
+</section>
+<section id="locate-the-input-files-with-inputdir">
+<h4>Locate the input files with <code class="docutils literal notranslate"><span class="pre">inputDir</span></code><a class="headerlink" href="#locate-the-input-files-with-inputdir" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inputDir</span> <span class="o">=</span> <span class="s2">&quot;inputs/&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">inputDir</span></code> is the common parent directory of the samples. With the directory layout used here, FCCAnalyses reads the ROOT files matching:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;inputDir&gt;/&lt;process_name&gt;/*.root
+</pre></div>
+</div>
+<p>For the signal, this becomes:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>inputs/wzp8_ee_mumuH_Hbb_ecm240/*.root
+</pre></div>
+</div>
+<p>Our downloaded file is therefore found at:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>inputs/wzp8_ee_mumuH_Hbb_ecm240/wzp8_ee_mumuH_Hbb_ecm240.edm4hep.root
+</pre></div>
+</div>
+<p>The subdirectory must match the <code class="docutils literal notranslate"><span class="pre">processList</span></code> key; the files inside it can have any name ending in <code class="docutils literal notranslate"><span class="pre">.root</span></code>. A directory can contain several ROOT files belonging to the same sample.</p>
+<p>The relative path <code class="docutils literal notranslate"><span class="pre">inputs/</span></code> is resolved from the directory where you execute the command. That is why all tutorial commands run from the <code class="docutils literal notranslate"><span class="pre">tutorial</span></code> working directory.</p>
+</section>
+<section id="choose-the-output-location-with-outputdir">
+<h4>Choose the output location with <code class="docutils literal notranslate"><span class="pre">outputDir</span></code><a class="headerlink" href="#choose-the-output-location-with-outputdir" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">outputDir</span> <span class="o">=</span> <span class="s2">&quot;outputs/recoil/&quot;</span>
+</pre></div>
+</div>
+<p>The histmaker creates this directory and writes one histogram ROOT file per process. For example, the signal output is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>outputs/recoil/wzp8_ee_mumuH_Hbb_ecm240.root
+</pre></div>
+</div>
+<p>These files contain the histograms produced by the analysis. <code class="docutils literal notranslate"><span class="pre">plots_recoil.py</span></code> reads them to create the figures; Part I does not write an intermediate event ntuple.</p>
+</section>
+<section id="load-the-additional-c-functions">
+<h4>Load the additional C++ functions<a class="headerlink" href="#load-the-additional-c-functions" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">includePaths</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;functions.h&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>FCCAnalyses loads this header into ROOT so the graph can call its C++ helpers, including muon isolation and Z-candidate construction. Relative header paths are resolved against the analysis script’s directory, so the downloaded <code class="docutils literal notranslate"><span class="pre">functions.h</span></code> belongs beside <code class="docutils literal notranslate"><span class="pre">histmaker_recoil.py</span></code>.</p>
+</section>
+<section id="set-processing-and-normalisation-options">
+<h4>Set processing and normalisation options<a class="headerlink" href="#set-processing-and-normalisation-options" title="Link to this heading"></a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">procDict</span> <span class="o">=</span> <span class="s2">&quot;FCCee_procDict_winter2023_IDEA.json&quot;</span>
+<span class="n">nCPUS</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">doScale</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">intLumi</span> <span class="o">=</span> <span class="mf">10.6e6</span>  <span class="c1"># pb^-1 = 10.6 ab^-1</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">procDict</span></code> names the standard sample-metadata dictionary found through the FCCAnalyses environment. The values supplied in <code class="docutils literal notranslate"><span class="pre">processList</span></code> override its normalisation metadata for our three samples.
+<code class="docutils literal notranslate"><span class="pre">nCPUS</span> <span class="pre">=</span> <span class="pre">-1</span></code> allows ROOT to use the available CPU threads. <code class="docutils literal notranslate"><span class="pre">doScale</span> <span class="pre">=</span> <span class="pre">True</span></code> scales the histograms to the expected yields at <code class="docutils literal notranslate"><span class="pre">intLumi</span></code>.</p>
+</section>
+</section>
+<section id="how-the-histmaker-works">
+<h3>How the histmaker works<a class="headerlink" href="#how-the-histmaker-works" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">build_graph(df,</span> <span class="pre">dataset)</span></code> function in <code class="docutils literal notranslate"><span class="pre">histmaker_recoil.py</span></code> defines the muon reconstruction, applies the cuts, and books the histograms in one RDataFrame graph. It returns the histogram handles in <code class="docutils literal notranslate"><span class="pre">results</span></code> and the sum of input event weights in <code class="docutils literal notranslate"><span class="pre">weightsum</span></code>. This tutorial uses unit event weights.</p>
+<p><code class="docutils literal notranslate"><span class="pre">df</span></code> is the ROOT dataframe containing the events for one sample; its columns provide the particle collections and other event data. FCCAnalyses calls <code class="docutils literal notranslate"><span class="pre">build_graph</span></code> for each configured sample, passing its name as <code class="docutils literal notranslate"><span class="pre">dataset</span></code>. The function uses <code class="docutils literal notranslate"><span class="pre">Define</span></code> to add calculated columns and <code class="docutils literal notranslate"><span class="pre">Filter</span></code> to select events. Finally, <code class="docutils literal notranslate"><span class="pre">results.append(df.Histo1D(...))</span></code> books each histogram directly on the dataframe after all cuts.</p>
+</section>
+<section id="muon-reconstruction-and-selection">
+<h3>Muon reconstruction and selection<a class="headerlink" href="#muon-reconstruction-and-selection" title="Link to this heading"></a></h3>
+<p>Muon identification is represented through indices into the reconstructed-particle collection. The script gives the relation column saved in the edm4hep file a more convenient name and subsequently retrieves the corresponding objects explicitly as a new column called <code class="docutils literal notranslate"><span class="pre">muons_all</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Alias</span><span class="p">(</span><span class="s2">&quot;Muon0&quot;</span><span class="p">,</span> <span class="s2">&quot;Muon_objIdx.index&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span>
+    <span class="s2">&quot;muons_all&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FCCAnalyses::ReconstructedParticle::get(Muon0, ReconstructedParticles)&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span>
+    <span class="s2">&quot;muons&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;FCCAnalyses::ReconstructedParticle::sel_p(</span><span class="si">{</span><span class="n">MUON_MOMENTUM_MIN</span><span class="si">}</span><span class="s2">)(muons_all)&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The alias does not copy the data. <code class="docutils literal notranslate"><span class="pre">get</span></code> retrieves muon candidates, and <code class="docutils literal notranslate"><span class="pre">sel_p(20)</span></code> keeps those with total momentum above 20 GeV. This is an <strong>object selection</strong>: it changes a collection within each event. It does not yet remove any events.</p>
+<p>Prompt muons from Z decay are often isolated from other particles. The helper <code class="docutils literal notranslate"><span class="pre">coneIsolation(0.01,</span> <span class="pre">0.5)</span></code> sums particle momenta in an annulus around each muon and divides the sum by that muon’s momentum. A smaller value indicates less surrounding activity. <code class="docutils literal notranslate"><span class="pre">sel_iso(0.25)</span></code> selects muons with a relative isolation below 0.25.</p>
+<p>The loose event selection requires at least one isolated muon and at least one opposite-sign pair among the momentum-selected muons.</p>
+</section>
+<section id="z-candidate-reconstruction">
+<h3>Z-candidate reconstruction<a class="headerlink" href="#z-candidate-reconstruction" title="Link to this heading"></a></h3>
+<p>An event can contain more than one opposite-sign pair. The helper <code class="docutils literal notranslate"><span class="pre">resonanceBuilder_mass_recoil(91.2,</span> <span class="pre">125,</span> <span class="pre">0.4,</span> <span class="pre">240,</span> <span class="pre">false)</span></code> ranks pairs using their compatibility with the Z mass and a Higgs recoil mass. Its score combines</p>
+<div class="math notranslate nohighlight">
+\[
+0.6\,(m_{\mu\mu}-91.2\,\mathrm{GeV})^2
++0.4\,(m_{\mathrm{recoil}}-125\,\mathrm{GeV})^2.
+\]</div>
+<p>The pair with the smallest score is retained. The arguments specify the target masses, the relative weight of the recoil term, the collision energy, and the use of reconstructed kinematics. The full call also passes the particle and relation collections required by the helper.</p>
+<p>The returned collection contains the composite Z candidate followed by the two muons used to build it. Selecting a pair in this way is distinct from imposing a mass window or performing a kinematic fit.</p>
+<p>FCCAnalyses property functions act on collections and often return vectors. For a one-element Z collection, <code class="docutils literal notranslate"><span class="pre">[0]</span></code> extracts the scalar observable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="s2">&quot;zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;Vec_rp</span><span class="si">{zbuilder_result[0]}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="s2">&quot;m_zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;FCCAnalyses::ReconstructedParticle::get_mass(zmumu)[0]&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="s2">&quot;p_zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;FCCAnalyses::ReconstructedParticle::get_p(zmumu)[0]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="understand-the-recoil-mass">
+<h3>Understand the recoil mass<a class="headerlink" href="#understand-the-recoil-mass" title="Link to this heading"></a></h3>
+<p>In the centre-of-mass frame, using the nominal collision energy and neglecting radiation, the initial four-momentum is</p>
+<div class="math notranslate nohighlight">
+\[
+p_{e^+e^-}=(\sqrt{s},0,0,0).
+\]</div>
+<p>Subtracting the reconstructed dimuon four-momentum gives the recoiling system:</p>
+<div class="math notranslate nohighlight">
+\[
+p_{\mathrm{recoil}}=p_{e^+e^-}-p_{\mu\mu},\qquad
+m_{\mathrm{recoil}}^2=s+m_{\mu\mu}^2-2\sqrt{s}\,E_{\mu\mu}.
+\]</div>
+<p>For a correctly reconstructed ZH event, the recoil mass should peak near the Higgs mass. Detector resolution, initial-state radiation, and beam-energy effects broaden or distort that peak.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span>
+    <span class="s2">&quot;recoil_zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;FCCAnalyses::ReconstructedParticle::recoilBuilder(240)(zmumu)&quot;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span>
+    <span class="s2">&quot;m_recoil_zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;FCCAnalyses::ReconstructedParticle::get_mass(recoil_zmumu)[0]&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The observable uses only the reconstructed Z and the assumed initial state; it does not require identifying the Higgs decay products. Our tutorial sample nevertheless contains only Higgs decays to bottom quarks. Its predicted yield therefore describes that final state, not an inclusive Higgs sample.</p>
+</section>
+<section id="selections-and-histogram-booking">
+<h3>Selections and histogram booking<a class="headerlink" href="#selections-and-histogram-booking" title="Link to this heading"></a></h3>
+<p>The histmaker applies the following requirements in order:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Requirement</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>At least one isolated muon and an opposite-sign muon pair</p></td>
+<td><p>Select events containing a plausible leptonic Z decay</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(86 &lt; m_{\mu\mu} &lt; 96\)</span> GeV</p></td>
+<td><p>Retain candidates near the Z mass</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(20 &lt; p_{\mu\mu} &lt; 70\)</span> GeV</p></td>
+<td><p>Select the momentum region expected for ZH production at 240 GeV</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(120 &lt; m_{\mathrm{recoil}} &lt; 140\)</span> GeV</p></td>
+<td><p>Select a region around the Higgs recoil peak</p></td>
+</tr>
+</tbody>
+</table>
+<p>The script fills three histograms after all cuts: <code class="docutils literal notranslate"><span class="pre">m_zmumu</span></code>, <code class="docutils literal notranslate"><span class="pre">p_zmumu</span></code>, and <code class="docutils literal notranslate"><span class="pre">m_recoil_zmumu</span></code>.</p>
+</section>
+<section id="sample-normalisation">
+<h3>Sample normalisation<a class="headerlink" href="#sample-normalisation" title="Link to this heading"></a></h3>
+<p>Raw simulated event counts depend on how many events were generated for each process. For these unweighted samples, the expected selected yield is</p>
+<div class="math notranslate nohighlight">
+\[
+N_{\mathrm{expected}}=
+\frac{N_{\mathrm{selected}}}{N_{\mathrm{generated}}}
+\,\sigma_{\mathrm{eff}}\,\mathcal{L}.
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\sigma_{\mathrm{eff}}\)</span> is the cross section for the generated final state and <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> is the integrated luminosity. We use the benchmark of <span class="math notranslate nohighlight">\(10.6\,\mathrm{ab}^{-1}\)</span>. This rescales the predicted yield; it does not increase the number of simulated events or reduce their relative statistical fluctuations.</p>
+<p>The histmaker already scales its output to 10.6 ab⁻¹. <code class="docutils literal notranslate"><span class="pre">plots_recoil.py</span></code> uses a scale factor of one and the matching luminosity label, preserving that normalisation.</p>
+</section>
+<section id="run-part-i">
+<h3>Run Part I<a class="headerlink" href="#run-part-i" title="Link to this heading"></a></h3>
+<p>From the <code class="docutils literal notranslate"><span class="pre">tutorial</span></code> working directory, run the two supplied scripts in order:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fccanalysis<span class="w"> </span>run<span class="w"> </span>histmaker_recoil.py
+fccanalysis<span class="w"> </span>plots<span class="w"> </span>plots_recoil.py
+</pre></div>
+</div>
+</section>
+<section id="inspect-the-plots">
+<h3>Inspect the plots<a class="headerlink" href="#inspect-the-plots" title="Link to this heading"></a></h3>
+<p>Open the PDF files in <code class="docutils literal notranslate"><span class="pre">outputs/plots/recoil/</span></code>. Look for the Z peak near 91 GeV in <code class="docutils literal notranslate"><span class="pre">m_zmumu</span></code> and the Higgs recoil peak near 125 GeV in <code class="docutils literal notranslate"><span class="pre">m_recoil_zmumu</span></code>. Compare the signal and background contributions in these plots and in <code class="docutils literal notranslate"><span class="pre">p_zmumu</span></code>.</p>
+</section>
+</section>
+<section id="part-ii-jets-and-flavour-tagging-in-a-staged-analysis">
+<h2><span class="section-number">3.4.1.4. </span>Part II — Jets and flavour tagging in a staged analysis<a class="headerlink" href="#part-ii-jets-and-flavour-tagging-in-a-staged-analysis" title="Link to this heading"></a></h2>
+<p>We now extend the same analysis to reconstruct the Higgs decay products. Jet clustering and especially flavour-tagging inference add work that we do not want to repeat every time we adjust a cut. We therefore save a reduced ntuple after a loose pre-selection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Stage 1: EDM4hep → muons and Z candidate → jets and tagging → reduced ntuple
+Stage 2: reduced ntuple → cumulative selections → histograms
+Stage 3: histograms → final plots
+</pre></div>
+</div>
+<p>The signal and backgrounds remain the same as in Part I. Reconstruction of the muons and the recoil observable follows the explanations above. The new ingredients are the jets, their flavour scores, and the separation of reconstruction from final selection.</p>
+<section id="stage-1-reconstruct-candidates-and-save-observables">
+<h3>Stage 1: reconstruct candidates and save observables<a class="headerlink" href="#stage-1-reconstruct-candidates-and-save-observables" title="Link to this heading"></a></h3>
+<section id="the-analysis-class-interface">
+<h4>The Analysis class interface<a class="headerlink" href="#the-analysis-class-interface" title="Link to this heading"></a></h4>
+<p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/">treemaker_flavor.py</a> creates an FCCAnalyses <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> object and uses its three methods:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">_)</span></code></p></td>
+<td><p>Set input samples, directories, model paths, and helper objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">analyzers(self,</span> <span class="pre">df)</span></code></p></td>
+<td><p>Add reconstructed quantities and loose selections to the event dataframe, then return that dataframe.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">output(self)</span></code></p></td>
+<td><p>Return the names of the columns to save in the reduced ntuple.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Unlike Part I’s <code class="docutils literal notranslate"><span class="pre">build_graph()</span></code>, <code class="docutils literal notranslate"><span class="pre">analyzers()</span></code> returns a dataframe rather than histogram handles. FCCAnalyses writes its selected events to a ROOT tree using the columns named by <code class="docutils literal notranslate"><span class="pre">output()</span></code>.</p>
+<p>The constructor uses <code class="docutils literal notranslate"><span class="pre">self.process_list</span></code>, <code class="docutils literal notranslate"><span class="pre">self.input_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">self.output_dir</span></code>, and <code class="docutils literal notranslate"><span class="pre">self.include_paths</span></code> for the settings introduced in Part I. It reuses the same samples, input directory, and C++ header. The new output directory stores the reduced ntuples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">input_dir</span> <span class="o">=</span> <span class="s2">&quot;./inputs/&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;./outputs/flavor/stage1/&quot;</span>
+</pre></div>
+</div>
+<p>Luminosity scaling is deferred to stage 2, where the cross sections will enter.</p>
+</section>
+<section id="identify-and-retrieve-the-flavour-tagging-model">
+<h4>Identify and retrieve the flavour-tagging model<a class="headerlink" href="#identify-and-retrieve-the-flavour-tagging-model" title="Link to this heading"></a></h4>
+<p>The two imported FCCAnalyses helpers handle clustering and neural-network inference:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">addons.FastJet.jetClusteringHelper</span> <span class="kn">import</span> <span class="n">ExclusiveJetClusteringHelper</span>
+<span class="kn">from</span> <span class="nn">addons.ONNXRuntime.jetFlavourHelper</span> <span class="kn">import</span> <span class="n">JetFlavourHelper</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ExclusiveJetClusteringHelper</span></code> builds jets from reconstructed particles. <code class="docutils literal notranslate"><span class="pre">JetFlavourHelper</span></code> calculates the inputs needed by a trained flavour classifier and evaluates that classifier with ONNX Runtime. Here, <em>inference</em> means applying an already trained network to our jets.</p>
+<p>Two matching files describe the network:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.json</span></code> file specifies input features, their preprocessing, and output score names.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.onnx</span></code> file stores the trained network and its parameters.</p></li>
+</ul>
+<p>The script identifies both files with the same model name and provides an EOS filesystem location and a fallback HTTP location. The returned values are filenames that the inference helper can open. This happens during construction of the analysis object, before event processing.</p>
+</section>
+<section id="connect-the-model-to-event-collections">
+<h4>Connect the model to event collections<a class="headerlink" href="#connect-the-model-to-event-collections" title="Link to this heading"></a></h4>
+<p>The helpers need to know which EDM4hep collections provide the required particles, tracks, and detector information. The constructor supplies this mapping:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">collections</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;GenParticles&quot;</span><span class="p">:</span> <span class="s2">&quot;Particle&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PFParticles&quot;</span><span class="p">:</span> <span class="s2">&quot;ReconstructedParticlesNoMuons&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PFTracks&quot;</span><span class="p">:</span> <span class="s2">&quot;EFlowTrack&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PFPhotons&quot;</span><span class="p">:</span> <span class="s2">&quot;EFlowPhoton&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PFNeutralHadrons&quot;</span><span class="p">:</span> <span class="s2">&quot;EFlowNeutralHadron&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TrackState&quot;</span><span class="p">:</span> <span class="s2">&quot;_EFlowTrack_trackStates&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;TrackerHits&quot;</span><span class="p">:</span> <span class="s2">&quot;TrackerHits&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CalorimeterHits&quot;</span><span class="p">:</span> <span class="s2">&quot;CalorimeterHits&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dNdx&quot;</span><span class="p">:</span> <span class="s2">&quot;EFlowTrack_dNdx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PathLength&quot;</span><span class="p">:</span> <span class="s2">&quot;EFlowTrack_L&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Bz&quot;</span><span class="p">:</span> <span class="s2">&quot;magFieldBz&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The dictionary keys are names understood by the helpers; the values are collection or column names in the dataframe. In particular, <code class="docutils literal notranslate"><span class="pre">PFParticles</span></code> points to <code class="docutils literal notranslate"><span class="pre">ReconstructedParticlesNoMuons</span></code>. That column is created later in <code class="docutils literal notranslate"><span class="pre">analyzers()</span></code> and contains the particles available for jet clustering after muon removal.</p>
+<p>The constructor then configures both helpers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">jet_clustering_helper</span> <span class="o">=</span> <span class="n">ExclusiveJetClusteringHelper</span><span class="p">(</span>
+    <span class="n">collections</span><span class="p">[</span><span class="s2">&quot;PFParticles&quot;</span><span class="p">],</span> <span class="mi">2</span>
+<span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">jet_flavour_helper</span> <span class="o">=</span> <span class="n">JetFlavourHelper</span><span class="p">(</span>
+    <span class="n">collections</span><span class="p">,</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">jet_clustering_helper</span><span class="o">.</span><span class="n">jets</span><span class="p">,</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">jet_clustering_helper</span><span class="o">.</span><span class="n">constituents</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weaver_preproc</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">preproc_file</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">jet_flavour_helper</span><span class="o">.</span><span class="n">scores</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">preproc_file</span><span class="p">)[</span><span class="s2">&quot;output_names&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The arguments to <code class="docutils literal notranslate"><span class="pre">ExclusiveJetClusteringHelper</span></code> specify the particle collection and the requested number of jets: two. Its <code class="docutils literal notranslate"><span class="pre">.jets</span></code> and <code class="docutils literal notranslate"><span class="pre">.constituents</span></code> attributes identify the columns that clustering will produce. Passing them to <code class="docutils literal notranslate"><span class="pre">JetFlavourHelper</span></code> ensures the tagger uses those same jets and their constituent particles. Reading <code class="docutils literal notranslate"><span class="pre">output_names</span></code> from the preprocessing JSON gives the flavour helper the score names produced by this model.</p>
+<p>Creating these Python helper objects only configures the analysis; their <code class="docutils literal notranslate"><span class="pre">define()</span></code> methods add the actual calculations to the dataframe later.</p>
+</section>
+<section id="build-the-event-graph-and-cluster-two-jets">
+<h4>Build the event graph and cluster two jets<a class="headerlink" href="#build-the-event-graph-and-cluster-two-jets" title="Link to this heading"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">analyzers()</span></code> begins with the same relation aliases, momentum-selected muons, isolation calculation, and opposite-sign-pair requirement introduced in Part I. It leaves the final mass windows and flavour-score cut to stage 2.</p>
+<p>The selected muons are removed from the particles used for clustering:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span>
+    <span class="s2">&quot;ReconstructedParticlesNoMuons&quot;</span><span class="p">,</span>
+<span class="s2">&quot;FCCAnalyses::ReconstructedParticle::remove(ReconstructedParticles, muons)&quot;</span><span class="p">,)</span>
+</pre></div>
+</div>
+<p>This prevents those muons from also contributing to the jets.</p>
+<p>The graph then clusters and tags the remaining particles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Filter</span><span class="p">(</span><span class="s2">&quot;ReconstructedParticlesNoMuons.size() &gt;= 2&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jet_clustering_helper</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Filter</span><span class="p">(</span><span class="s2">&quot;event_njet == 2&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jet_flavour_helper</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jet_flavour_helper</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weaver_preproc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weaver_model</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The first filter requires at least two particles for clustering. The clustering helper adds jet four-momenta, constituent assignments, and <code class="docutils literal notranslate"><span class="pre">event_njet</span></code>. The next filter requires two jets before the tagger uses them. Asking for two jets encodes our <span class="math notranslate nohighlight">\(H \to qq\)</span> hypothesis; background events are clustered in exactly the same way.</p>
+<p><code class="docutils literal notranslate"><span class="pre">jet_flavour_helper.define(df)</span></code> constructs the track and constituent features. <code class="docutils literal notranslate"><span class="pre">inference(...)</span></code> uses the JSON preprocessing configuration and ONNX network to add per-jet flavour scores, including <code class="docutils literal notranslate"><span class="pre">recojet_isB</span></code> and <code class="docutils literal notranslate"><span class="pre">recojet_isC</span></code>.</p>
+</section>
+<section id="calculate-the-saved-observables">
+<h4>Calculate the saved observables<a class="headerlink" href="#calculate-the-saved-observables" title="Link to this heading"></a></h4>
+<p>The Z-candidate builder and the definitions of <code class="docutils literal notranslate"><span class="pre">m_zmumu</span></code>, <code class="docutils literal notranslate"><span class="pre">p_zmumu</span></code>, and <code class="docutils literal notranslate"><span class="pre">m_recoil_zmumu</span></code> follow Part I. The new event discriminant adds the two bottom-tagging scores:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="s2">&quot;scoresum_B&quot;</span><span class="p">,</span> <span class="s2">&quot;recojet_isB[0] + recojet_isB[1]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each score measures how strongly a jet resembles a bottom jet according to the classifier.</p>
+<p>The jet four-momenta give the dijet invariant mass:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span>
+    <span class="s2">&quot;p4_jets&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;JetConstituentsUtils::compute_tlv_jets(&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">jet_clustering_helper</span><span class="o">.</span><span class="n">jets</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="s2">&quot;m_jj&quot;</span><span class="p">,</span> <span class="s2">&quot;JetConstituentsUtils::InvariantMass(p4_jets[0], p4_jets[1])&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">compute_tlv_jets</span></code> converts the reconstructed jets to four-vectors, and <code class="docutils literal notranslate"><span class="pre">InvariantMass</span></code> calculates the mass of their sum. For signal, <code class="docutils literal notranslate"><span class="pre">m_jj</span></code> should peak near the Higgs mass. It uses the Higgs decay products directly, while <code class="docutils literal notranslate"><span class="pre">m_recoil_zmumu</span></code> uses the reconstructed Z and the known initial state.</p>
+</section>
+<section id="choose-which-columns-are-written">
+<h4>Choose which columns are written<a class="headerlink" href="#choose-which-columns-are-written" title="Link to this heading"></a></h4>
+<p>The supplied <code class="docutils literal notranslate"><span class="pre">output()</span></code> method is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Columns persisted in the stage-1 output ROOT file.&quot;&quot;&quot;</span>
+    <span class="n">branch_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;m_zmumu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;p_zmumu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;m_recoil_zmumu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;m_jj&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scoresum_B&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="c1"># Add the output branches from the jet flavour helper.</span>
+    <span class="n">branch_list</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jet_flavour_helper</span><span class="o">.</span><span class="n">outputBranches</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">branch_list</span>
+</pre></div>
+</div>
+<p>Stage 2 can only use columns written here. With FCCAnalyses v0.13.1, the output files are grouped in a directory for each sample. For the default single chunk, for example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>outputs/flavor/stage1/wzp8_ee_mumuH_Hbb_ecm240/wzp8_ee_mumuH_Hbb_ecm240-chunk-0.root
+</pre></div>
+</div>
+<p>FCCAnalyses also writes the processed-event metadata needed to preserve the loose-selection efficiency when normalising later. The final step discovers the ROOT files inside each sample directory; its <code class="docutils literal notranslate"><span class="pre">inputDir</span></code> remains <code class="docutils literal notranslate"><span class="pre">outputs/flavor/stage1/</span></code>.</p>
+</section>
+</section>
+<section id="stage-2-apply-selections-and-fill-histograms">
+<h3>Stage 2: apply selections and fill histograms<a class="headerlink" href="#stage-2-apply-selections-and-fill-histograms" title="Link to this heading"></a></h3>
+<p>Open <a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/selection_flavor.py">selection_flavor.py</a>. <code class="docutils literal notranslate"><span class="pre">fccanalysis</span> <span class="pre">final</span></code> reads its configuration to select events from the saved ntuples and fill histograms. It reuses the reconstructed quantities, so it does not rerun clustering or the network.</p>
+<section id="apply-the-supplied-cumulative-cuts">
+<h4>Apply the supplied cumulative cuts<a class="headerlink" href="#apply-the-supplied-cumulative-cuts" title="Link to this heading"></a></h4>
+<p>The script defines cut thresholds at the top, as in Part I. It uses the same dimuon and recoil windows, then adds <code class="docutils literal notranslate"><span class="pre">BTAG_SUM_MIN</span> <span class="pre">=</span> <span class="pre">1.0</span></code>.</p>
+<p>The first three <code class="docutils literal notranslate"><span class="pre">cutList</span></code> entries illustrate how the selections are written, if we want to impose selection requirements in multiple steps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cutList</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;sel0_baseline&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sel1_zmass&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;m_zmumu &gt; </span><span class="si">{</span><span class="n">Z_MASS_MIN</span><span class="si">}</span><span class="s2"> &amp;&amp; m_zmumu &lt; </span><span class="si">{</span><span class="n">Z_MASS_MAX</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">),</span>
+    <span class="s2">&quot;sel2_zmomentum&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;m_zmumu &gt; </span><span class="si">{</span><span class="n">Z_MASS_MIN</span><span class="si">}</span><span class="s2"> &amp;&amp; m_zmumu &lt; </span><span class="si">{</span><span class="n">Z_MASS_MAX</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot; &amp;&amp; p_zmumu &gt; </span><span class="si">{</span><span class="n">Z_MOMENTUM_MIN</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot; &amp;&amp; p_zmumu &lt; </span><span class="si">{</span><span class="n">Z_MOMENTUM_MAX</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">),</span>
+    <span class="c1"># ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The keys label the selection stages. The values are C++ boolean expressions evaluated on each ntuple entry. Python f-strings insert the numerical constants into those expressions, and <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> means that both requirements must hold. <code class="docutils literal notranslate"><span class="pre">&quot;true&quot;</span></code> accepts every event in the stage-1 ntuple.</p>
+<p>FCCAnalyses evaluates each entry independently on that ntuple. Consequently, <code class="docutils literal notranslate"><span class="pre">sel2_zmomentum</span></code> repeats the Z-mass cut before adding the momentum cut. The remaining entries repeat the earlier cuts and add the recoil window and then <code class="docutils literal notranslate"><span class="pre">scoresum_B</span> <span class="pre">&gt;</span> <span class="pre">1.0</span></code>. This produces a cumulative cut flow:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Selection</p></th>
+<th class="head"><p>Additional requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sel0_baseline</span></code></p></td>
+<td><p>All events saved by stage 1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sel1_zmass</span></code></p></td>
+<td><p>86 &lt; dimuon mass &lt; 96 GeV</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sel2_zmomentum</span></code></p></td>
+<td><p>20 &lt; dimuon momentum &lt; 70 GeV</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sel3_recoil</span></code></p></td>
+<td><p>120 &lt; recoil mass &lt; 140 GeV</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sel4_btag</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scoresum_B</span> <span class="pre">&gt;</span> <span class="pre">1.0</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="preserve-the-stage-1-efficiency-when-normalising">
+<h4>Preserve the stage-1 efficiency when normalising<a class="headerlink" href="#preserve-the-stage-1-efficiency-when-normalising" title="Link to this heading"></a></h4>
+<p>FCCAnalyses uses the processed-event metadata saved by stage 1 as the normalisation denominator. Using only the surviving ntuple entries would discard the loose-selection efficiency. <code class="docutils literal notranslate"><span class="pre">doScale</span> <span class="pre">=</span> <span class="pre">True</span></code> enables the scaling.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">saveJSON</span> <span class="pre">=</span> <span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">fccanalysis</span> <span class="pre">final</span></code> also writes <code class="docutils literal notranslate"><span class="pre">outputs/flavor/stage2/results.json</span></code>. This file contains the numerical cut flow for each sample, so you can compare the event yields after successive selections.</p>
+</section>
+<section id="specify-the-histograms-with-histolist">
+<h4>Specify the histograms with <code class="docutils literal notranslate"><span class="pre">histoList</span></code><a class="headerlink" href="#specify-the-histograms-with-histolist" title="Link to this heading"></a></h4>
+<p>FCCAnalyses fills every <code class="docutils literal notranslate"><span class="pre">histoList</span></code> entry for every <code class="docutils literal notranslate"><span class="pre">cutList</span></code> selection and every process. Thus the five observables are available both at baseline and after each additional cut. Histogram files are written to <code class="docutils literal notranslate"><span class="pre">outputs/flavor/stage2/</span></code>, with names such as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>wzp8_ee_mumuH_Hbb_ecm240_sel4_btag_histo.root
+</pre></div>
+</div>
+</section>
+</section>
+<section id="stage-3-produce-the-plots">
+<h3>Stage 3: produce the plots<a class="headerlink" href="#stage-3-produce-the-plots" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://raw.githubusercontent.com/HEP-FCC/fcc-tutorials/main/3-analysis/3-1-higgs-analysis/plots_flavor.py">plots_flavor.py</a> connects the histogram outputs to the plotting command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inputDir</span> <span class="o">=</span> <span class="s2">&quot;outputs/flavor/stage2/&quot;</span>
+<span class="n">outdir</span> <span class="o">=</span> <span class="s2">&quot;outputs/plots/flavor/&quot;</span>
+<span class="n">formats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pdf&quot;</span><span class="p">]</span>
+
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;m_zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;p_zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;m_recoil_zmumu&quot;</span><span class="p">,</span> <span class="s2">&quot;m_jj&quot;</span><span class="p">,</span> <span class="s2">&quot;scoresum_B&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">variables</span></code> lists histogram keys from <code class="docutils literal notranslate"><span class="pre">histoList</span></code>. The <code class="docutils literal notranslate"><span class="pre">selections</span></code> dictionary lists the matching <code class="docutils literal notranslate"><span class="pre">cutList</span></code> keys, and <code class="docutils literal notranslate"><span class="pre">plots</span></code> groups the sample names into signal and backgrounds.</p>
+<p>The result is a PDF for each observable and selection, showing how the expected signal and background distributions change as the cuts accumulate.
+Note: FCCAnalyses uses different plotting configuration conventions for the histmaker and staged workflows. This explains the structural differences between the plotting scripts in Parts I and II, even though both read ROOT histograms.</p>
+</section>
+<section id="run-part-ii">
+<h3>Run Part II<a class="headerlink" href="#run-part-ii" title="Link to this heading"></a></h3>
+<p>From the same <code class="docutils literal notranslate"><span class="pre">tutorial</span></code> working directory, run these three commands in order:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fccanalysis<span class="w"> </span>run<span class="w"> </span>treemaker_flavor.py
+fccanalysis<span class="w"> </span>final<span class="w"> </span>selection_flavor.py
+fccanalysis<span class="w"> </span>plots<span class="w"> </span>plots_flavor.py
+</pre></div>
+</div>
+</section>
+</section>
+<section id="understand-the-completed-results">
+<h2><span class="section-number">3.4.1.5. </span>Understand the completed results<a class="headerlink" href="#understand-the-completed-results" title="Link to this heading"></a></h2>
+<p>After running both workflows, open the plots in <code class="docutils literal notranslate"><span class="pre">outputs/plots/flavor/</span></code>. Follow the distributions from the baseline to the final selection. Look for the Z peak in <code class="docutils literal notranslate"><span class="pre">m_zmumu</span></code> and Higgs-compatible structures in <code class="docutils literal notranslate"><span class="pre">m_recoil_zmumu</span></code> and <code class="docutils literal notranslate"><span class="pre">m_jj</span></code>. Open <code class="docutils literal notranslate"><span class="pre">outputs/flavor/stage2/results.json</span></code> for the numerical cut flow. Use these yields to identify which requirements reject each background and how much signal is lost. The statistical fluctuations reflect the available simulated events even when the histograms are scaled to a much larger expected dataset.</p>
+</section>
+<section id="further-exercises">
+<h2><span class="section-number">3.4.1.6. </span>Further exercises<a class="headerlink" href="#further-exercises" title="Link to this heading"></a></h2>
+<p>The supplied workflow is complete. The exercises below explore changes to it. A final-cut change requires rerunning <code class="docutils literal notranslate"><span class="pre">selection_flavor.py</span></code> and <code class="docutils literal notranslate"><span class="pre">plots_flavor.py</span></code>; a change to reconstruction or saved columns also requires rerunning <code class="docutils literal notranslate"><span class="pre">treemaker_flavor.py</span></code>.</p>
+<div class="challenge admonition">
+<p class="admonition-title">Optional exercise: explain the Z-momentum selection</p>
+<p>For <span class="math notranslate nohighlight">\(e^+e^-\to AB\)</span>, the outgoing momentum in the centre-of-mass frame is</p>
+<div class="math notranslate nohighlight">
+\[
+p=\frac{\sqrt{[s-(m_A+m_B)^2][s-(m_A-m_B)^2]}}{2\sqrt{s}}.
+\]</div>
+<p>Calculate the Z momentum for ZH and ZZ production at 240 GeV. Use your results to explain the different peaks and the momentum window. Then change one selection boundary and inspect how the signal and background yields respond.</p>
+</div>
+<div class="challenge admonition">
+<p class="admonition-title">Optional exercise: explore detector performance</p>
+<p>As an extension, investigate how changes to neutral-hadron momentum resolution affect the dijet mass. Such a change belongs in the reconstruction stage and requires rebuilding the ntuple. The FCCAnalyses <a class="reference external" href="https://github.com/HEP-FCC/FCCAnalyses/blob/master/examples/FCCee/smearing/smear_jets.py">jet-smearing example</a> provides a starting point.</p>
+</div>
+</section>
+<section id="beyond-this-tutorial">
+<h2><span class="section-number">3.4.1.7. </span>Beyond this tutorial<a class="headerlink" href="#beyond-this-tutorial" title="Link to this heading"></a></h2>
+<p>This exercise takes reconstructed events through candidate building, selection, normalisation, and plotting. It demonstrates a subset of the backgrounds and does not constitute a complete Higgs measurement. A full analysis would validate the modelling, include all relevant processes, estimate systematic uncertainties and their correlations, and construct a statistical model. That model could then be used to extract a cross section, signal strength, or Higgs mass.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../README.html" class="btn btn-neutral float-left" title="3. Analysis at FCC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../3-2-tracking-vertexing/README.html" class="btn btn-neutral float-right" title="3.4.2. Beyond the Basics: Tracking and Vertexing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, CERN.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: dev
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../main/index.html">main</a></dd>
+      <dd><a href="README.html">dev</a></dd>
+      <dd><a href="../../../edm4hep-update/index.html">edm4hep-update</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
