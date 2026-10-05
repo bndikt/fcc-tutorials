@@ -1,4 +1,4 @@
-# Analysis at FCC
+# Analysis
 
 The preceding chapters introduced event generation and detector simulation. The next step is to use reconstructed events to answer for example the following physics questions: which events resemble our signal, which observables distinguish them from backgrounds, and how many events do we expect to observe?
 
